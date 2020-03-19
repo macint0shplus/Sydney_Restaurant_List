@@ -52,7 +52,6 @@ public class DetailFragment extends Fragment {
         return fragment;
     }
 
-    /////////////////
     private TextView mName;
     private TextView mSymbol;
     private TextView mValue;
@@ -63,7 +62,6 @@ public class DetailFragment extends Fragment {
     private TextView mVolume;
     private ImageView mSearch;
     private Coin mCoin;
-    ///////////
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

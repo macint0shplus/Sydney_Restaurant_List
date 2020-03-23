@@ -1,7 +1,6 @@
 package au.edu.unsw.infs3634.cryptobag;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,10 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String EXTRA_MESSAGE = "au.edu.unsw.infs3634.beers.MESSAGE";
+    public static final String EXTRA_MESSAGE = "";
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -29,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mTwoPane = findViewById((R.id.scrollView)) != null;
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mTwoPane = findViewById((R.id.detailContainer)) != null;
         CoinAdapter.RecyclerViewClickListener listener = new CoinAdapter.RecyclerViewClickListener() {
             public void onClick(View view, int position) {
                 if(mTwoPane){
@@ -39,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                     arguments.putInt("position", position);
                     DetailFragment fragment = new DetailFragment();
                     fragment.setArguments(arguments);
-                    transaction.replace(R.id.scrollView, fragment);
+                    transaction.replace(R.id.detailContainer, fragment);
                     transaction.commit();
                 } else {
                     launchDetailActivity(position);

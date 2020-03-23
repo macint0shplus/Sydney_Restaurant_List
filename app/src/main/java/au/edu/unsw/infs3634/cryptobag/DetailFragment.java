@@ -26,6 +26,17 @@ public class DetailFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private TextView mName;
+    private TextView mSymbol;
+    private TextView mValue;
+    private TextView mChange1h;
+    private TextView mChange24h;
+    private TextView mChange7d;
+    private TextView mMarketcap;
+    private TextView mVolume;
+    private ImageView mSearch;
+    private Coin mCoin;
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -52,16 +63,7 @@ public class DetailFragment extends Fragment {
         return fragment;
     }
 
-    private TextView mName;
-    private TextView mSymbol;
-    private TextView mValue;
-    private TextView mChange1h;
-    private TextView mChange24h;
-    private TextView mChange7d;
-    private TextView mMarketcap;
-    private TextView mVolume;
-    private ImageView mSearch;
-    private Coin mCoin;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

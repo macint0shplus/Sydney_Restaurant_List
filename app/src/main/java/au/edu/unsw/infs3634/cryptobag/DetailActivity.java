@@ -6,15 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import java.text.NumberFormat;
-import java.util.ArrayList;
 
 public class DetailActivity extends AppCompatActivity {
     @Override
@@ -27,6 +19,6 @@ public class DetailActivity extends AppCompatActivity {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         Fragment fragment = new DetailFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.scrollView, fragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.detailContainerScroll, fragment).commit();
     }
 }

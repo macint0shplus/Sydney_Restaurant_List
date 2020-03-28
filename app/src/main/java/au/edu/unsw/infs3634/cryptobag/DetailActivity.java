@@ -12,10 +12,15 @@ public class DetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
-        Intent intent = getIntent();
-        int position = intent.getIntExtra(MainActivity.EXTRA_MESSAGE, 0);
 
+        // Setting the layout for the additon to the large screen.
+        setContentView(R.layout.activity_detail);
+
+        // Receive information for the positon
+        Intent intent = getIntent();
+        int position = intent.getIntExtra("EXTRA_MESSAGE", 0);
+
+        // Add the fragment to its position
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         Fragment fragment = new DetailFragment();

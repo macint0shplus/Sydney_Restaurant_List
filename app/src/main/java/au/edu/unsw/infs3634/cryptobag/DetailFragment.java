@@ -76,6 +76,7 @@ public class DetailFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_detail, container, false);
         boolean mTwoPane = false;
         int position = 0;
+        int dd = 0;
 
         restaurantName = v.findViewById(R.id.restaurantNameTV2);
         restaurantCuisine = v.findViewById(R.id.restaurantCuisineTV2);

@@ -25,6 +25,7 @@ public class DetailFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    // Initialising UI elements
     private TextView restaurantName;
     private TextView restaurantCuisine;
     private TextView restaurantLocation;
@@ -71,13 +72,15 @@ public class DetailFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        // Initialising the view and variables which will be used
         View v = inflater.inflate(R.layout.fragment_detail, container, false);
         boolean mTwoPane = false;
         int position = 0;
         int dd = 0;
 
+        // Connecting variables to UI Elements in their respective view
         restaurantName = v.findViewById(R.id.restaurantNameTV2);
         restaurantCuisine = v.findViewById(R.id.restaurantCuisineTV2);
         restaurantLocation = v.findViewById(R.id.restaurantLocationTV2);
@@ -85,10 +88,14 @@ public class DetailFragment extends Fragment {
         restaurantPhone = v.findViewById(R.id.restaurantPhoneTV2);
         restaurantSearch = v.findViewById(R.id.restaurantSearchTV2);
 
+        // Checking whether or not the screen is normal or wide (>900 dp)
+        // The result will be stored in mTwoPane
         if (this.getArguments() != null) {
             mTwoPane = getArguments().getBoolean("position", true);
         }
 
+        // If the screen is wide, just add the data on the fragment. If it's not, then prepare to have the information for the next screen
+        // There are two different intent bundles for two different purposes (fragment vs nonfragment)
         if (mTwoPane) {
             myRestaurant = Restaurant.getRestaurants().get(getArguments().getInt("position"));
         } else {
@@ -96,11 +103,15 @@ public class DetailFragment extends Fragment {
             position = intent.getIntExtra("EXTRA_MESSAGE", 0);
             myRestaurant = myRestaurant.getRestaurants().get(position);
         }
+
+        // Displaying the information about the restaurants on the UI
         restaurantName.setText(String.valueOf(myRestaurant.getName()));
         restaurantCuisine.setText(String.valueOf(myRestaurant.getcuisine()));
         restaurantLocation.setText(String.valueOf(myRestaurant.getlocation()));
-        restaurantRating.setRating((float)myRestaurant.getrating());
+        restaurantRating.setRating((float) myRestaurant.getrating());
         restaurantPhone.setText(String.valueOf(myRestaurant.getphone()));
+
+        // Implicit intent if the user clicks the search button
         restaurantSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,6 +122,7 @@ public class DetailFragment extends Fragment {
         return v;
     }
 
+    // Implicit intent if the user clicks the search button
     private void searchRestaurant(String name) {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/search?q=" + name));
         startActivity(intent);

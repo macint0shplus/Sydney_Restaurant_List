@@ -2,6 +2,7 @@ package au.edu.unsw.infs3634.cryptobag;
 
 import java.util.ArrayList;
 
+// Initialising variables of the Restaurant Class
 public class Restaurant {
     private String name;
     private String cuisine;
@@ -9,10 +10,11 @@ public class Restaurant {
     private double rating;
     private String phone;
 
-
+    // Empty initialiser
     public Restaurant() {
     }
 
+    // Setting class variables
     public Restaurant(String name, String cuisine, String location, double rating, String phone) {
         this.name = name;
         this.cuisine = cuisine;
@@ -21,6 +23,7 @@ public class Restaurant {
         this.phone = phone;
     }
 
+    // Getter/Setter methods for attributes
     public String getName() {
         return name;
     }
@@ -54,7 +57,8 @@ public class Restaurant {
         this.phone = phone;
     }
 
-
+    // The array which stores all the details surrounding each restaurant
+    // This is where details of the restaurants will be extracted
     public static ArrayList<Restaurant> getRestaurants() {
         ArrayList<Restaurant> restaurants = new ArrayList<>();
         restaurants.add(new Restaurant("Flower Child",

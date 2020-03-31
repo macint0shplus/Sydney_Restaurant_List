@@ -34,21 +34,22 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        // If detailContainer exists, then we are using a widescreen
+        // If detailContainer exists, then we are using a widescreen. So, we need to setup the fragment.
+        // If not, then we just intent to another screen with the correct information.
         mTwoPane = findViewById((R.id.detailContainer)) != null;
         RestaurantAdapter.RecyclerViewClickListener listener = new RestaurantAdapter.RecyclerViewClickListener() {
             public void onClick(View view, int position) {
-                if(mTwoPane){ // If it exists, we need to do fragment things
+                if (mTwoPane) { // Organise fragment
                     final FragmentManager fragmentManager = getSupportFragmentManager();
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     Bundle arguments = new Bundle();
-                    arguments.putInt("position", position);
+                    arguments.putInt("position", position); // Pass identifier of restaurant
                     DetailFragment fragment = new DetailFragment(); // Send position to the detailFragment
                     fragment.setArguments(arguments);
                     transaction.replace(R.id.detailContainer, fragment);
                     transaction.commit();
                 } else {
-                    launchDetailActivity(position); // Go to new screen
+                    launchDetailActivity(position); // Go to new screen with identifier of restaurant
                 }
             }
         };
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
     }
 
+    // New activity to page with restaurant details
     private void launchDetailActivity(int position) {
         Intent intent = new Intent(this, DetailActivity.class);
         intent.putExtra("EXTRA_MESSAGE", position);

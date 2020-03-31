@@ -55,7 +55,7 @@
     <TextView
         android:id="@+id/restaurantCuisineTV2"
         android:layout_width="180dp"
-        android:layout_height="60dp"
+        android:layout_height="85dp"
         android:gravity="center|center_vertical"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/restaurantNameTV2"
@@ -64,7 +64,7 @@
     <TextView
         android:id="@+id/restaurantLocationTV2"
         android:layout_width="180dp"
-        android:layout_height="60dp"
+        android:layout_height="85dp"
         android:gravity="center|center_vertical"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/restaurantNameTV2"
